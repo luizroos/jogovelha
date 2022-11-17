@@ -1,5 +1,4 @@
 # Jogo da Velha
----
 
 Este é um programa que foi feito para que alunos, que estão aprendendo a programar em <b>java</b>, pratiquem a linguagem criando jogadores para decidir as jogadas de uma partida de jogo da velha.
 
@@ -81,7 +80,6 @@ Exemplo de inicialização do jogo usando um jogador customizado:
 ```
 
 ## Interface do jogo
----
 
 Eu não sou uma pessoa de java desktop, não me interesso por swing e awt, se alguém algum dia quiser criar uma interface mais legal (ou corrigir alguma gambiarra que eu posso ter feito nessas interfaces), por favor, fique a vontade rs. 
 
