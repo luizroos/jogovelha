@@ -10,7 +10,7 @@ Para executar, rode:
 ```
 
 Quando você executar o jogo, será questionado se você deseja executar no modo competição ou não. 
-O modo competição é um modo onde todos jogadores vão jogar várias partidas uns constra os outros, revezando quem é o jogador que começa o jogo para ser justo com todos. Vence o campeonato aquele jogador que fizer mais pontos.
+O modo competição é um modo onde todos jogadores vão jogar várias partidas uns contra os outros, revezando quem é o jogador que começa o jogo para ser justo com todos. Vence o campeonato aquele jogador que fizer mais pontos.
 Já no modo sem competição, você escolhe os dois jogadores e executa uma partida de cada vez.
 
 O jogo será iniciado com alguns jogadores já implementados:
@@ -36,7 +36,7 @@ public interface Jogador {
 }
 ```
 
-No método que essa interface define, você tera que devolver a jogada que seu jogador quer que seja realizada, onde: 
+No método que essa interface define, você terá que devolver a jogada que seu jogador quer que seja realizada, onde: 
 - tabuleiro: representa o tabuleiro do jogo da velha em modo leitura (e aqui, propositalmente é usado uma classe para impedir que alunos espertos tentem burlar o jogo realizando jogadas direto no tabuleiro).  
 - lista de jogadas que ainda estão disponíveis para serem feitas no tabuleiro (você pode conseguir a mesma coisa via tabuleiro.getJogadasDisponiveis).
 
@@ -44,24 +44,24 @@ Caso seu jogador não decida uma jogada, retornando nulo, ou seu jogador lance u
 
 Esse tabuleiro que você recebe tem os seguintes métodos:
 
-- getJogadasDisponiveis(): retorna todas jogadas disponiveis para o tabuleiro, o mesmo que você recebeu no parâmetro jogadasDisponiveis.
+- getJogadasDisponiveis(): retorna todas jogadas disponíveis para o tabuleiro, o mesmo que você recebeu no parâmetro jogadasDisponiveis.
 - getJogadasRealizadas(): retorna todas as jogadas já realizadas, na ordem que foram realizadas.
 - getVencedor(): retorna o vencedor caso haja um, não havendo ainda retorna null.
-- getJogadorQueJogou(new Jogada(linha, coluna)): retorna o jogador que fez uma determinada jogada (null se a posicao esta disponivel).
-- getJogadorQueJogou(linha, coluna): retorna o jogador que fez uma determinada jogada utilizando uma linha e coluna (null se a posicao esta disponivel).
+- getJogadorQueJogou(new Jogada(linha, coluna)): retorna o jogador que fez uma determinada jogada (null se a posição está disponível).
+- getJogadorQueJogou(linha, coluna): retorna o jogador que fez uma determinada jogada utilizando uma linha e coluna (null se a posição está disponível).
 - getJogadores(): retorna um array com os dois jogadores do tabuleiro.
 - getJogadorDaVez(): retorna o jogador da vez.
 - verificaJogadaDisponivel(new Jogada(linha, coluna)): verifica se uma jogada foi feita, retornando true se sim e false se não
-- verificaJogadaDisponivel(linha, coluna): verifica se uma jogada foi feita utilizando direto a linha e coluna, retornando true se sim e false se não. Disponível apenas partir da versão 1.1.0.
+- verificaJogadaDisponivel(linha, coluna): verifica se uma jogada foi feita utilizando direto a linha e coluna, retornando true se sim e false se não.
 - verificaTabuleiroCompleto(): verifica se todas as posições do tabuleiro estão completas e não tem mais jogadas para fazer.
-- copiarTabuleiro(): faz uma copia do tabuleiro, que da acesso a métodos de movimentação (realizarJogada e desfazerJogada), tudo que vc fizer nesse tabuleiro de copia não vai valer, serve apenas para você simular situações que queira fazer antes de decidir. Todos métodos acima tb estão disponiveis nesse tabuleiro de simulação.
+- copiarTabuleiro(): faz uma cópia do tabuleiro, que dá acesso a métodos de movimentação (realizarJogada e desfazerJogada), tudo que vc fizer nesse tabuleiro de cópia não vai valer, serve apenas para você simular situações que queira fazer antes de decidir. Todos os métodos acima tb estão disponiveis nesse tabuleiro de simulação.
 
-Usando copiarTabuleiro, você tem acesso a mais dois métodos nesse tabuleiro de cópia, esse é a dica para criar jogadores mais complexos, porque ai você pode simular jogadas através dos métodos:
+Usando copiarTabuleiro, você tem acesso a mais dois métodos nesse tabuleiro de cópia, esse é a dica para criar jogadores mais complexos, porque aí você pode simular jogadas através dos métodos:
 
 - realizarJogada(new Jogada(linha, coluna)): Realiza uma jogada no tabuleiro, exemplo realizarJogada(new Jogada(1,1)), retornando true se a jogada pode ser feita e false se a jogada não foi feita. Note que, uma vez que você realiza uma jogada, o jogadorDaVez desse tabuleiro muda, e você pode ter um vencedor ou um tabuleiro completo.
 - desfazUltimaJogada(): desfaz a última jogada feita (considerando apenas as jogadas realizadas no tabuleiro de simulação). Retorna true se a jogada pode ser desfeita ou false se ela não pode. Note que, uma vez que você desfaz uma jogada, o jogadorDaVez desse tabuleiro muda.
 
-Com seus jogadores criados, você pode iniciar a aplicação passando uma lista contendo eles. Essa lista, na verdade, é de competidores, e um Competidor é basicamente a "fabrica" de um jogador. O competidor deve ter um nome e um meio de criar novas instancias do jogador. É assim porque alguns alunos podem acabar usando variaveis de instancia na implementação de jogador deles, e isso poderia gerar um problema ao longo de vários jogos com a mesma instância sendo reutilizada. Por isso, a cada novo jogo, uma instância de jogador nova é criada. 
+Com seus jogadores criados, você pode iniciar a aplicação passando uma lista contendo eles. Essa lista, na verdade, é de competidores, e um Competidor é basicamente a "fábrica" de um jogador. O competidor deve ter um nome e um meio de criar novas instâncias do jogador. É assim porque alguns alunos podem acabar usando variaveis de instância na implementação de jogador deles, e isso poderia gerar um problema ao longo de vários jogos com a mesma instância sendo reutilizada. Por isso, a cada novo jogo, uma instância de jogador nova é criada. 
 
 Exemplo de inicialização do jogo usando um jogador customizado:
 
@@ -90,7 +90,6 @@ Duas interfaces que vocês podem olhar para criar uma interface são JogoVelhaEv
 ## Campeonato mais avançado
 
 Fazer um campeonato entre os alunos é legal, porém, o jogo sempre começar com o tabuleiro vazio pode ser um pouco chato, não testando para valer a inteligência dos jogadores. Então tem uma forma de iniciar o campeonato definindo jogadas pré definidas para as rodadas, veja por exemplo:
-
 
 ```java
   public static void main(String[] args) {
