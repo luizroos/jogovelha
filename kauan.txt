@@ -1,0 +1,10 @@
+public class Kauan {
+
+  public int a() {
+    return 1+1
+  }
+
+}
+
+
+
