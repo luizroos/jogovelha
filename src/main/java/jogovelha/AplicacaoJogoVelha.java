@@ -1,13 +1,9 @@
 package jogovelha;
 
+aaa  
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.function.Supplier;
-
 import jogovelha.campeonato.Campeonato;
 import jogovelha.campeonato.Campeonato.PontosCompetidor;
 import jogovelha.jogadores.Computadores;
@@ -32,6 +28,7 @@ public class AplicacaoJogoVelha {
   }
 
   public static void executar(List<Competidor> outrosJogadores) {
+	  System.out.println("abc");
     final List<Competidor> competidores = Computadores.competidoresPadrao();
     competidores.addAll(outrosJogadores);
 
