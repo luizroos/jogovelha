@@ -5,16 +5,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import jogovelha.campeonato.Campeonato;
-import jogovelha.campeonato.Campeonato.PontosCompetidor;
-import jogovelha.jogadores.Computadores;
-import jogovelha.jogadores.simples.Humano;
-import jogovelha.jogo.Competidor;
-import jogovelha.jogo.Jogador;
-import jogovelha.jogo.JogadorTabuleiro;
-import jogovelha.jogo.JogoVelha;
-import jogovelha.jogo.Tabuleiro;
-import jogovelha.ui.AplicacaoUI;
-import jogovelha.ui.campeonato.CampeonatoUI;
 import jogovelha.ui.jogo.JogoUI;
 
 public class AplicacaoJogoVelha {
